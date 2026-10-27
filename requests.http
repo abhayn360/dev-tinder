@@ -1,0 +1,68 @@
+### Manual API testing.
+### Install the "REST Client" VS Code extension, then click "Send Request" above each block.
+### Cookies are remembered between requests, just like a browser.
+
+@baseUrl = http://localhost:3000/api/v1
+
+### Health check
+GET http://localhost:3000/health
+
+### Sign up
+POST {{baseUrl}}/auth/signup
+Content-Type: application/json
+
+{
+  "firstName": "Abhay",
+  "lastName": "Nath",
+  "emailId": "abhay@example.com",
+  "password": "Password123"
+}
+
+### Log in
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "emailId": "abhay@example.com",
+  "password": "Password123"
+}
+
+### My profile
+GET {{baseUrl}}/profile
+
+### Update profile
+PATCH {{baseUrl}}/profile
+Content-Type: application/json
+
+{
+  "about": "Learning Node.js",
+  "skills": ["node", "express", "mongodb"],
+  "age": 25
+}
+
+### Change password
+PATCH {{baseUrl}}/profile/password
+Content-Type: application/json
+
+{
+  "currentPassword": "Password123",
+  "newPassword": "Password456"
+}
+
+### Feed (paginated)
+GET {{baseUrl}}/user/feed?page=1&limit=10
+
+### Send a request (replace the id with a user id from the feed)
+POST {{baseUrl}}/requests/send/interested/REPLACE_WITH_USER_ID
+
+### Requests I received
+GET {{baseUrl}}/user/requests/received
+
+### Accept a request (replace with a request id)
+POST {{baseUrl}}/requests/review/accepted/REPLACE_WITH_REQUEST_ID
+
+### My connections
+GET {{baseUrl}}/user/connections
+
+### Log out
+POST {{baseUrl}}/auth/logout

@@ -1,0 +1,47 @@
+{
+  "name": "dev-tinder",
+  "version": "1.0.0",
+  "description": "DevTinder API - connect with developers",
+  "private": true,
+  "main": "src/server.js",
+  "author": "abhaynath.g",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --require ./tests/env.js --test \"tests/**/*.test.js\"",
+    "test:watch": "node --require ./tests/env.js --test --watch \"tests/**/*.test.js\"",
+    "test:coverage": "node --require ./tests/env.js --test --experimental-test-coverage \"tests/**/*.test.js\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.2",
+    "pino": "^10.4.0",
+    "pino-http": "^11.0.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.13.0",
+    "mongodb-memory-server": "^11.3.0",
+    "pino-pretty": "^13.2.0",
+    "prettier": "^3.9.10",
+    "supertest": "^7.3.1"
+  }
+}
